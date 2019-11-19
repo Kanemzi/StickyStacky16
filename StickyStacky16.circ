@@ -1669,4 +1669,44 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="shift" val="lr"/>
     </comp>
   </circuit>
+  <circuit name="Tester">
+    <a name="circuit" val="Tester"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(90,20)" to="(120,20)"/>
+    <wire from="(80,90)" to="(90,90)"/>
+    <wire from="(80,70)" to="(90,70)"/>
+    <wire from="(80,50)" to="(90,50)"/>
+    <wire from="(80,50)" to="(80,60)"/>
+    <wire from="(80,80)" to="(80,90)"/>
+    <comp lib="0" loc="(120,20)" name="Tunnel">
+      <a name="width" val="6"/>
+      <a name="label" val="op"/>
+    </comp>
+    <comp lib="0" loc="(90,50)" name="Tunnel">
+      <a name="label" val="zf"/>
+    </comp>
+    <comp lib="0" loc="(90,90)" name="Tunnel">
+      <a name="label" val="of"/>
+    </comp>
+    <comp lib="0" loc="(90,70)" name="Tunnel">
+      <a name="label" val="sf"/>
+    </comp>
+    <comp lib="0" loc="(90,20)" name="Pin">
+      <a name="width" val="6"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="op"/>
+    </comp>
+    <comp lib="0" loc="(60,50)" name="Pin">
+      <a name="width" val="3"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="flags"/>
+    </comp>
+    <comp lib="0" loc="(60,50)" name="Splitter">
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+      <a name="appear" val="right"/>
+    </comp>
+  </circuit>
 </project>
