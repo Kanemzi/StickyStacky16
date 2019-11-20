@@ -1,11 +1,20 @@
 zf	sf	of	|lt	eq	gt
-0	0	0	|0	0i	1
+0	0	0	|0	0	1
 0	0	1	|0	0	1
 0	1	0	|1	0	0
-0	1	1	|1	0	0
+0	1	1	|0	0	1
 1	0	0	|0	1	0
 1	0	1	|0	1	0
 1	1	0	|0	1	0
 1	1	1	|0	1	0
 
 TODO: gérer les overflows
+
+sf => SP > SP+1
+
+!sf of => SP < SP+1
+sf of => 
+
+
+lt => SP+1 < SP
+gt => SP+1 > SP
