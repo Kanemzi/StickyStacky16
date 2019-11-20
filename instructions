@@ -1,31 +1,43 @@
 id     |name	       |stack	       |stackc	       |sigs
-       |	       |spsel	wsel   |spsel	wsel   |
+       |	       |spsel	wsel   |spsel	wsel   |muxstack(3)
 ____________________________________________________________________
-0	add		01	10	10	11			
-1	sub		01	10	10	11
-2	neg		10	00	10	11
-3	mul		01	10	10	11
-4	div		01	10	10	11
-5	rem		01	10	10	11
-6	not		10	00	10	11
-7	and		01	10	10	11
-8	or		01	10	10	11
-9	shl		01	10	10	11
-10	sra		01	10	10	11
-11	lt		01	10	10	11
-12	eq		01	10	10	11
-13	gt		01	10	10	11
-14	jmp adr		10	11	10	11
-15	jmpt adr	01	11	10	11
-16	jmpf adr	01	11	10	11
-17	push val	11	01	10	11
-18	push [adr]	11	01	10	11
-19	pop		01	11	10	11
-20	pop [adr]	01	11	10	11
-21	call adr	10	11	11	01
-22	ret		10	11	01	11
-23	dup		11	01	10	11
-24	halt		10	11	10	11
+0	add		01	10	10	11	011	6b	03	
+1	sub		01	10	10	11	011	6b	03
+2	neg		10	00	10	11	011	8b	03
+3	mul		01	10	10	11	011	6b	03
+4	div		01	10	10	11	011	6b	03
+5	rem		01	10	10	11	011	6b	03
+6	not		10	00	10	11	011	8b	03
+7	and		01	10	10	11	011	6b	03
+8	or		01	10	10	11	011	6b	03
+9	shl		01	10	10	11	011	6b	03
+10	sra		01	10	10	11	011	6b	03
+11	lt		01	10	10	11	100	6b	04
+12	eq		01	10	10	11	100	6b	04
+13	gt		01	10	10	11	100	6b	04
+14	jmp adr		10	11	10	11		bb	
+15	jmpt adr	01	11	10	11		7b	
+16	jmpf adr	01	11	10	11		7b	
+17	push val	11	01	10	11	010	db	02
+18	push [adr]	11	01	10	11	001	db	01
+19	pop		01	11	10	11		7b	
+20	pop [adr]	01	11	10	11		7b	
+21	call adr	10	11	11	01		bd	
+22	ret		10	11	01	11		b7	
+23	dup		11	01	10	11	000	db	00
+24	halt		10	11	10	11		bb	
+
+muxstack:
+000 stack[top]
+001 val ram
+010 val inst
+011 result alu
+100 tester result
+101 
+110 
+111 
+
+sigs : aabbccddeee
 
 spsel:
 	00 reset
