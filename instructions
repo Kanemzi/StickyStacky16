@@ -1,0 +1,39 @@
+id     |name	       |stack	       |stackc	       |sigs
+       |	       |spsel	wsel   |spsel	wsel   |
+____________________________________________________________________
+0	add		01	10	10	11			
+1	sub		01	10	10	11
+2	neg		10	00	10	11
+3	mul		01	10	10	11
+4	div		01	10	10	11
+5	rem		01	10	10	11
+6	not		10	00	10	11
+7	and		01	10	10	11
+8	or		01	10	10	11
+9	shl		01	10	10	11
+10	sra		01	10	10	11
+11	lt		01	10	10	11
+12	eq		01	10	10	11
+13	gt		01	10	10	11
+14	jmp adr		10	11	10	11
+15	jmpt adr	01	11	10	11
+16	jmpf adr	01	11	10	11
+17	push val	11	01	10	11
+18	push [adr]	11	01	10	11
+19	pop		01	11	10	11
+20	pop [adr]	01	11	10	11
+21	call adr	10	11	11	01
+22	ret		10	11	01	11
+23	dup		11	01	10	11
+24	halt		10	11	10	11
+
+spsel:
+	00 reset
+	01 ++ pop
+	10 nop
+	11 -- push
+wsel:
+	00 stack[sp]
+	01 stack[sp-1]
+	10 stack[sp+1]
+	11 no write
