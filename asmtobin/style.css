@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#editor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+}
+
+#editor #convert {
+    margin: 5px 0px 5px 0px;
+    width: 4%;
+    height: 95%
+}
+
+#editor section {
+    margin: 5px;
+    width: 48%;
+}
+
+#editor section textarea {
+    width: 100%;
+    height: 95%;
+}
