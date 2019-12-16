@@ -83,7 +83,7 @@ let prepare = (asmLines) => {
         } else {
             let adrval = `${val}`.startsWith('[')
             op += adrval ? '_a' : ''
-            instructions.push({op: op, val: val})
+            instructions.push({op: op, val: adrval ? val.slice(1,-1) : val})
             ic++
         }
     }
@@ -95,7 +95,7 @@ let prepare = (asmLines) => {
             instruction.val = tag 
         }
     }
-    
+	console.log(instructions)
     return instructions
 }
 
@@ -116,7 +116,7 @@ function intToUint(int, nbit) {
     nbit = +nbit || 32;
     if (nbit > 32) throw new RangeError('intToUint only supports ints up to 32 bits');
     u[0] = int;
-    if (nbit < 32) { // don't accidentally sign again
+    if (nbit < 32) {
         int = Math.pow(2, nbit) - 1;
         return u[0] & int;
     } else {
